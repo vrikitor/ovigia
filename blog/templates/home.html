@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Vigia | Notícias e Variedades</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="{% url 'home' %}" style="text-decoration:none; color:white;">O Vigia<span>.</span></a></div>
+            
+            <nav class="nav-links">
+                <a href="{% url 'filtro' 'SAUDE' %}">Saúde</a>
+                <a href="{% url 'filtro' 'FINANCAS' %}">Finanças</a>
+                <a href="{% url 'filtro' 'RECEITAS' %}">Receitas</a>
+                <a href="{% url 'filtro' 'MUNDO' %}">Mundo</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <h1>Últimas do Dia</h1>
+
+            {% for item in noticias %}
+            <article class="noticia-card">
+                
+                {% if item.imagem %}
+                    <a href="{% url 'detalhe' item.id %}">
+                        <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}" style="width: 100%; height: 250px; object-fit: cover; border-bottom: 1px solid #eee;">
+                    </a>
+                {% endif %}
+
+                <div class="card-body">
+                    <span class="categoria-tag">{{ item.get_categoria_display }}</span>
+                    
+                    <a href="{% url 'detalhe' item.id %}" style="text-decoration: none; color: inherit;">
+                        <h2>{{ item.titulo }}</h2>
+                    </a>
+
+                    <p>{{ item.conteudo|truncatewords:30 }}</p>
+                    
+                    <div class="meta-info">
+                        <span>Por Redação</span>
+                        <a href="{% url 'detalhe' item.id %}" style="color: #c1121f; font-weight: bold; text-decoration: none;">Leia mais &rarr;</a>
+                    </div>
+                </div>
+            </article>
+            {% empty %}
+            <p>Nenhuma notícia encontrada nesta categoria.</p>
+            <a href="{% url 'home' %}" style="color: #0d1b2a; text-decoration: underline;">Voltar para ver tudo</a>
+            {% endfor %}
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3>🔥 Mais Lidos</h3>
+                <ul style="list-style: none; padding-left: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
+                        Como organizei minhas finanças ganhando pouco
+                    </li>
+                    <li>
+                        3 exercícios mentais para ansiedade
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>Patrocinado</h3>
+                <div class="ad-box">
+                    <strong>Aprenda Inglês em 3 Meses</strong><br>
+                    <small>Clique aqui para conhecer o método...</small>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

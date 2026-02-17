@@ -1,0 +1,150 @@
+/* style.css - O Vigia */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* RESET E BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif; /* Fonte moderna para o corpo */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* CABEÇALHO "JORNAL" */
+header {
+    background-color: #0d1b2a; /* Azul Quase Preto */
+    color: white;
+    padding: 15px 0;
+    border-bottom: 4px solid #c1121f; /* Vermelho Sangue */
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Merriweather', serif; /* Fonte clássica de jornal */
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.logo span { color: #c1121f; } /* O ponto vermelho */
+
+/* MENU DE CATEGORIAS (SIMULADO) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.nav-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
+.nav-links a:hover { color: white; }
+
+/* LAYOUT PRINCIPAL */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 partes notícia, 1 parte barra lateral */
+    gap: 30px;
+}
+
+/* NOTÍCIAS */
+.main-content h1 {
+    font-family: 'Merriweather', serif;
+    color: #0d1b2a;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.noticia-card {
+    background: white;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+.noticia-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #aaa;
+}
+
+.card-body { padding: 20px; }
+
+.categoria-tag {
+    background-color: #0d1b2a;
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.noticia-card h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    color: #1b263b;
+    margin-bottom: 10px;
+}
+
+.noticia-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.meta-info {
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* BARRA LATERAL (ADS SIMULADOS) */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.widget {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: 3px solid #0d1b2a;
+}
+
+.widget h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-family: 'Merriweather', serif;
+}
+
+/* Simulando os infoprodutos que você venderia */
+.ad-box {
+    background-color: #f8f9fa;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+}
+.ad-box:hover { background-color: #e9ecef; }

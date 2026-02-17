@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ noticia.titulo }} | O Vigia</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="{% url 'home' %}" style="text-decoration:none; color:white;">O Vigia<span>.</span></a></div>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Voltar para Início</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="display: block; max-width: 800px;">
+        <article class="noticia-card" style="border: none; box-shadow: none; background: transparent;">
+            
+            <span class="categoria-tag" style="margin-bottom: 15px;">{{ noticia.get_categoria_display }}</span>
+            
+            <h1 style="font-size: 2.8rem; color: #0d1b2a; margin-bottom: 5px; font-family: 'Merriweather', serif; line-height: 1.2;">
+                {{ noticia.titulo }}
+            </h1>
+
+            {% if noticia.subtitulo %}
+                <h2 style="font-size: 1.4rem; color: #555; font-weight: normal; margin-bottom: 20px; font-family: sans-serif; line-height: 1.4;">
+                    {{ noticia.subtitulo }}
+                </h2>
+            {% endif %}
+            
+            <p style="color: #777; border-bottom: 1px solid #ddd; padding-bottom: 20px; margin-bottom: 20px;">
+                Publicado por Redação em {{ noticia.data_publicacao|date:"d/m/Y \à\s H:i" }}
+            </p>
+
+            {% if noticia.imagem %}
+                <figure style="margin: 0 0 30px 0;">
+                    <img src="{{ noticia.imagem.url }}" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    
+                    {% if noticia.legenda_imagem %}
+                        <figcaption style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 8px; font-style: italic;">
+                            📷 {{ noticia.legenda_imagem }}
+                        </figcaption>
+                    {% endif %}
+                </figure>
+            {% endif %}
+
+            <div style="font-size: 1.2rem; line-height: 1.8; color: #333; font-family: 'Georgia', serif;">
+                {{ noticia.conteudo|linebreaksbr }}
+            </div>
+
+            <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
+                <a href="{% url 'home' %}" style="background-color: #0d1b2a; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">&larr; Voltar para notícias</a>
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
