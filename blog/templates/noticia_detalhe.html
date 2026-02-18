@@ -5,14 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ noticia.titulo }} | O Vigia</title>
-    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}?v=2">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <div class="logo"><a href="{% url 'home' %}" style="text-decoration:none; color:white;">O Vigia<span>.</span></a></div>
+            <div class="logo">
+                <a href="{% url 'home' %}" style="text-decoration:none; color:white;">
+                    O Vigia<span>.</span>
+                </a>
+            </div>
+
             <nav class="nav-links">
                 <a href="{% url 'home' %}">Voltar para Início</a>
             </nav>
@@ -51,7 +56,7 @@
             {% endif %}
 
             <div style="font-size: 1.2rem; line-height: 1.8; color: #333; font-family: 'Georgia', serif;">
-                {{ noticia.conteudo|linebreaksbr }}
+                {{ noticia.conteudo|safe }}
             </div>
 
             <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
