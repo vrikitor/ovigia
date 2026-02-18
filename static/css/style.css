@@ -1,150 +1,199 @@
-/* style.css - O Vigia */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
-
-/* RESET E BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* =========================================
+   RESET E ESTILOS GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 body {
     background-color: #f4f4f4;
-    font-family: 'Roboto', sans-serif; /* Fonte moderna para o corpo */
     color: #333;
     line-height: 1.6;
 }
 
-/* CABEÇALHO "JORNAL" */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   CABEÇALHO (HEADER)
+   ========================================= */
 header {
-    background-color: #0d1b2a; /* Azul Quase Preto */
+    background-color: #0d1b2a;
     color: white;
     padding: 15px 0;
-    border-bottom: 4px solid #c1121f; /* Vermelho Sangue */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .header-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
-.logo {
-    font-family: 'Merriweather', serif; /* Fonte clássica de jornal */
-    font-size: 2.2rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-    text-transform: uppercase;
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
 }
 
-.logo span { color: #c1121f; } /* O ponto vermelho */
+.logo span {
+    color: #e63946; /* Ponto vermelho */
+}
 
-/* MENU DE CATEGORIAS (SIMULADO) */
-.nav-links {
-    display: flex;
-    gap: 20px;
-    font-size: 0.9rem;
+/* Menu Desktop */
+.nav-links a {
+    margin-left: 20px;
     font-weight: 500;
-    text-transform: uppercase;
+    font-size: 1rem;
+    transition: color 0.3s;
 }
-.nav-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
-.nav-links a:hover { color: white; }
 
-/* LAYOUT PRINCIPAL */
+.nav-links a:hover {
+    color: #e63946;
+}
+
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
 .container {
     max-width: 1100px;
     margin: 30px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* 2 partes notícia, 1 parte barra lateral */
+    display: flex;
     gap: 30px;
+    padding: 0 20px;
 }
 
-/* NOTÍCIAS */
-.main-content h1 {
-    font-family: 'Merriweather', serif;
-    color: #0d1b2a;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+/* Coluna Esquerda (Notícias) */
+.main-content {
+    flex: 3; /* Ocupa 3 partes do espaço */
 }
 
 .noticia-card {
     background: white;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    transition: 0.2s;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid #0d1b2a;
 }
-
-.noticia-card:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: #aaa;
-}
-
-.card-body { padding: 20px; }
 
 .categoria-tag {
     background-color: #0d1b2a;
     color: white;
     padding: 3px 8px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: bold;
-    display: inline-block;
-    margin-bottom: 10px;
+    border-radius: 3px;
 }
 
 .noticia-card h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.5rem;
-    color: #1b263b;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    color: #1d3557;
 }
 
-.noticia-card p {
-    color: #555;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+.noticia-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
 }
 
-.meta-info {
-    font-size: 0.8rem;
-    color: #888;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
+.btn-ler-mais {
+    display: inline-block;
+    margin-top: 15px;
+    color: #e63946;
+    font-weight: bold;
 }
 
-/* BARRA LATERAL (ADS SIMULADOS) */
+/* Coluna Direita (Sidebar) */
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.widget {
+    flex: 1; /* Ocupa 1 parte do espaço */
     background: white;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-top: 3px solid #0d1b2a;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.widget h3 {
-    font-size: 1.1rem;
+.sidebar h3 {
     margin-bottom: 15px;
-    font-family: 'Merriweather', serif;
+    border-bottom: 2px solid #e63946;
+    padding-bottom: 5px;
 }
 
-/* Simulando os infoprodutos que você venderia */
-.ad-box {
-    background-color: #f8f9fa;
-    border: 1px dashed #ccc;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    cursor: pointer;
+.sidebar-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
-.ad-box:hover { background-color: #e9ecef; }
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+footer {
+    background-color: #0d1b2a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+/* =========================================
+   MOBILE (RESPONSIVO) - A CORREÇÃO TOTAL
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Header vira Coluna (Logo em cima, menu embaixo) */
+    .header-container {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 10px !important;
+    }
+
+    .logo {
+        margin-bottom: 15px; /* Espaço vital para não grudar */
+        width: 100%;
+    }
+
+    /* 2. Menu flexível e centralizado */
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin: 0; /* Remove a margem esquerda do desktop */
+        padding: 8px 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+
+    /* 3. Layout Principal Vertical */
+    .container {
+        flex-direction: column !important;
+        padding: 10px;
+    }
+
+    .main-content, .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        margin-top: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+}
