@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-tb)-0fcx@zk26t$#6!fjsb1=m)n8kpe9n!1w367_5j20m-0&+x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# Aceita o seu site na nuvem E o seu site local
+ALLOWED_HOSTS = ['vrikitor.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
